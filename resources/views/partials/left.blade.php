@@ -1,0 +1,1 @@
+<div id="bentrai" class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
