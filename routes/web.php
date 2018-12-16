@@ -58,5 +58,20 @@ Route::get('xoa-thanh-vien-chi-tiet/{id}', 'ThanhVienController@getXoaThanhVienC
 Route::get('them-thanh-vien', 'ThanhVienController@getThemThanhVien')->name('them-thanh-vien');
 Route::post('them-thanh-vien', 'ThanhVienController@postThemThanhVien')->name('them-thanh-vien');
 
+
+// Liên hệ
 Route::get('lien-he', 'LienheController@getLienhe')->name('lien-he');
+Route::get('danh-sach-lien-he', 'LienheController@getDanhsachLienhe')->name('lien-he');
 Route::post('them-lien-he', 'LienheController@postLienhe')->name('them-lien-he');
+Route::get('xoa-lien-he/{id}', 'LienheController@deleteLienhe')->name('xoa-lien-he');
+Route::get('chi-tiet-lien-he/{id}', 'LienheController@detailLienhe')->name('chi-tiet-lien-he');
+
+// Slide
+Route::get('slide', 'SlideController@getSlide')->name('slide');
+Route::get('sua-slide/{id}', 'SlideController@editSlide')->name('sua-slide');
+Route::post('cap-nhat-slide/{id}', 'SlideController@putSlide')->name('cap-nhat-slide');
+Route::get('xoa-slide/{id}', 'SlideController@deleteSlide')->name('xoa-slide');
+
+// Bỏ phiêu 
+Route::post('bo-phieu', 'BophieuController@postBophieu')->name('bo-phieu');
+Route::get('danh-sach-bo-phieu', 'BophieuController@getBophieu')->name('danh-sach-bo-phieu');

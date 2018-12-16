@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\ThanhVien;
 use Illuminate\Http\Request;
-
+use Session;
 class ThanhVienController extends Controller
 {
     public function getDangKy()
@@ -84,7 +84,9 @@ class ThanhVienController extends Controller
 
     public function getDangXuat(Request $request)
     {
-        $request->session()->flush();
+        Session::forget('id_thanh_vien');
+        Session::forget('email');
+        Session::forget('kieu_thanh_vien');
         return redirect('dang-nhap');
     }
 

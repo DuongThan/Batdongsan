@@ -3,13 +3,28 @@
 namespace App\Http\Controllers;
 use App\BaiDang;
 use Illuminate\Http\Request;
+use App\Slide;
+use App\Bophieu;
+use Session;
 
 class BaiDangController extends Controller
 {
     public function getTrangChu()
     {
+        $slide = Slide::all();
+        Session::put('slide', $slide);
+        $bophieu = Bophieu::orderBy('so_luong','desc')->get();
+        $tongphieu = 0;
+        foreach($bophieu as $item){
+            $tongphieu += $item->so_luong;
+        }
+        if($tongphieu == 0)
+            $tongphieu = 1;
+        foreach($bophieu as $item){
+            $item->tyle = round($item->so_luong *100 / $tongphieu,2);
+        }
 		$bai_dang_da_duyet = BaiDang::baiDangDaDuyet();
-		return view('trang-chu', ['bai_dang_da_duyet' => $bai_dang_da_duyet]);
+		return view('trang-chu', ['bai_dang_da_duyet' => $bai_dang_da_duyet],['bophieu'=>$bophieu]);
     }
 
     public function getNhaDatBan()

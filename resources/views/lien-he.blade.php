@@ -1,9 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Liên hệ')
 @section('noidung')
-<div class="col-md-12 text-center">
-    <a href="/" class="btn btn-primary" type="submit">Trở về</a>
-</div>
 <div class="container-fluid">
     <div class="row">
         @include('partials.left')
